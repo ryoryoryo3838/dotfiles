@@ -9,7 +9,7 @@
       cat = "bat";
       ls = "eza";
       hm = "home-manager switch --file /home/miyax/dotfiles/home.nix";
-      sync = "git add . && git commit -m '$1' && git push";
+      sync = "git add . && git commit --allow-empty  && git push";
     };
     oh-my-zsh = {
       enable = true;
