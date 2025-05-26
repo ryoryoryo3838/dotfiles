@@ -25,7 +25,8 @@
       HISTFILE=~/.history/zsh_history
       HISTSIZE=1000
       SAVEHIST=1000
-      setopt autocd beep nomatch
+      # ビープ音消します
+      #  setopt autocd beep nomatch
       bindkey -v
       # End of lines configured by zsh-newuser-install
       # The following lines were added by compinstall

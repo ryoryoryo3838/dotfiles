@@ -24,6 +24,10 @@
   home.file = {
     ".vimrc".source = dots/vimrc;
     ".gitconfig".source = dots/gitconfig;
+    ".config/nixpkgs" = {
+      source = config/nixpkgs;
+      recursive = true;
+    };
   };
 
   home.sessionVariables = {
