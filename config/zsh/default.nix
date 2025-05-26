@@ -5,8 +5,19 @@
     enable = true;
     autosuggestion.enable = true;   
     syntaxHighlighting.enable = true;
+    shellAliases = {
+      cat = "bat";
+      ls = "eza";
+      hm = "home-manager switch --file /home/miyax/dotfiles/home.nix";
+      sync = "git add . && git commit -m '$1' && git push";
+    };
     oh-my-zsh = {
       enable = true;
+      plugins = [
+        "git"
+        "aliases" 
+        "copyfile"
+      ];
       theme = "robbyrussell";
     };
     initContent = ''
@@ -23,6 +34,7 @@
       autoload -Uz compinit
       compinit
       # End of lines added by compinstall
+      eval "$(zoxide init zsh)"
     '';
   };
 }

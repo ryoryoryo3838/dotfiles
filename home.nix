@@ -10,6 +10,11 @@
     pkgs.git
     pkgs.gh
 
+    pkgs.zsh
+    pkgs.bat
+    pkgs.eza
+    pkgs.zoxide
+    pkgs.fzf
   ];
   
   imports = [
