@@ -15,10 +15,15 @@
     pkgs.eza
     pkgs.zoxide
     pkgs.fzf
+
+    pkgs.direnv
+
   ];
   
   imports = [
     ./config/zsh
+    ./config/neovim
+    ./config/direnv
   ];
 
   home.file = {
@@ -29,12 +34,14 @@
       source = config/nixpkgs;
       recursive = true;
     };
+    ".config/nvim" = {
+      source = config/neovim/nvim;
+      recursive = true;
+    };
   };
 
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
 
+  home.enableNixpkgsReleaseCheck = false;
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
 }
