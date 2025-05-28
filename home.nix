@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 
-in
 {
   home.username = "miyax";
   home.homeDirectory = "/home/miyax";
