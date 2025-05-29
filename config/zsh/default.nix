@@ -37,9 +37,16 @@
 
       sync(){
         branch=$(git rev-parse --abbrev-ref HEAD) 
-        git add .
-        git commit --allow-empty
-        git push -u origin $branch
+        echo"Current branch:$branch"
+        echo"Sync there?(y/n)"
+        read $answer
+        case in
+        [Yy])
+          git add .
+          git commit --allow-empty
+          git push -u origin $branch;;
+        *)
+        esac
       }
     '';
   };
