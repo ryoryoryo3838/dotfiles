@@ -33,6 +33,10 @@
       compinit
       # End of lines added by compinstall
       eval "$(zoxide init zsh)"
+
+      sync(){
+        echo "Hello!"
+      }
     '';
   };
 }
