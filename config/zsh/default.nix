@@ -40,7 +40,7 @@
         echo"Current branch:$branch"
         echo"Sync there?(y/n)"
         read $answer
-        case in
+        case "$answer" in
         [Yy])
           git add .
           git commit --allow-empty
