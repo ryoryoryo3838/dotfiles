@@ -35,7 +35,8 @@
       # End of lines added by compinstall
       eval "$(zoxide init zsh)"
 
-      branch(branch) {
+      branch() {
+        read branch
         git add .
         git commit --allow-empty
         git push -u origin $branch
