@@ -34,9 +34,9 @@
       compinit
       # End of lines added by compinstall
       eval "$(zoxide init zsh)"
-
       sync(){
         branch=$(git rev-parse --abbrev-ref HEAD) 
+        git --no-pager branch
         echo "Current branch: $branch"
         read "answer?Sync there? (y/n): "
         case "$answer" in
@@ -44,7 +44,14 @@
           git add .;
           git commit --allow-empty;
           git push -u origin $branch;;
-        *);;
+        [n])
+          echo "Ok! Then...";
+          read "branch?Enter sync branch-name!!: ";
+          git checkout $branch;
+          git add .;
+          git commit --allow-empty;
+          git push -u origin $branch;;
+        *) echo "Enter y or n!!!";;
         esac
       }
     '';
