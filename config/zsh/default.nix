@@ -37,8 +37,8 @@
 
       sync(){
         branch=$(git rev-parse --abbrev-ref HEAD) 
-        echo"Current branch:$branch"
-        echo"Sync there?(y/n)"
+        echo "Current branch:$branch"
+        echo "Sync there?(y/n)"
         read $answer
         case "$answer" in
         [Yy])
