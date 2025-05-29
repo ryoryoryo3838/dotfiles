@@ -29,6 +29,7 @@
   home.file = {
     ".vimrc".source = dots/vimrc;
     ".gitconfig".source = dots/gitconfig;
+    ".bashrc".source = dots/bashrc;
     ".profile".source = dots/profile;
     ".config/nixpkgs" = {
       source = config/nixpkgs;
