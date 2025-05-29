@@ -9,7 +9,7 @@
       cat = "bat";
       ls = "eza";
       hm = "home-manager switch --file /home/miyax/dotfiles/home.nix";
-      sync = "git add . && git commit --allow-empty && git push";
+      # sync = "git add . && git commit --allow-empty  && git push";
     };
     oh-my-zsh = {
       enable = true;
@@ -34,12 +34,8 @@
       compinit
       # End of lines added by compinstall
       eval "$(zoxide init zsh)"
-
-      syncb() {
-        read branch
-        git add .
-        git commit --allow-empty
-        git push -u origin $branch
+      sync(){
+        echo"Hello"
       }
     '';
   };
