@@ -18,6 +18,9 @@
 
     pkgs.direnv
 
+    pkgs.libgcc
+    pkgs.nodejs_24
+  
   ];
   
   imports = [
