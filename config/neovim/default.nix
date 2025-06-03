@@ -1,13 +1,15 @@
 { config, lib, pkgs, ... }:
 
-{
-  pkgs.neovim.override {
+let myNeovim = pkgs.neovim.override {
     configure = {
-      with-clipboard = true;
+      withClipboard = true;
     };
   };
+in
+{
   programs.neovim = {
     enable = true;
+    package = myNeovim;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
