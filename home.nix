@@ -18,8 +18,8 @@
 
     pkgs.direnv
 
-    pkgs.libgcc
-    pkgs.nodejs_24
+    # pkgs.libgcc
+    # pkgs.nodejs_24
   
   ];
   
