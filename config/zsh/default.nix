@@ -54,6 +54,10 @@
         *) echo "Enter y or n!!!";;
         esac
       }
+      
+      clone(repo){
+        git clone https://github.com/ryoryoryo3838/$repo.git
+      }
     '';
   };
 }
