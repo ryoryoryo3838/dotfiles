@@ -1,6 +1,11 @@
 { config, lib, pkgs, ... }:
 
 {
+  pkgs.neovim.override {
+    configure = {
+      with-clipboard = true;
+    };
+  };
   programs.neovim = {
     enable = true;
     defaultEditor = true;
