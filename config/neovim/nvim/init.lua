@@ -29,3 +29,7 @@ require "polish"
 require "filetype"
 
 vim.o.shell = "/home/miyax/.nix-profile/bin/zsh"
+
+vim.keymap.set("n", "<C-l>", ":bnext<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-h>", ":bprev<CR>", { noremap = true, silent = true })
+vim.api.nvim_create_user_command("tt", "ToogleTerm", {})
