@@ -39,7 +39,7 @@
         git --no-pager branch
         echo "Current branch: $branch"
         echo -n "Sync there? (y/n): "
-        read -n 1 answer
+        read 1 $answer
         case "$answer" in
         [y])
           echo "Pull";
@@ -47,16 +47,7 @@
           echo "Add & Commit";
           git add .;
           git commit --allow-empty;
-          echo "Commited!!";
-          echo -n "Push there?(y/n)";
-          read -n 1 answer2;
-          case "$answer2" in;
-          [y])
-            echo "Push"
-            git push -u origin $branch;;
-          [*])
-            echo "Retry!!";;
-          esac;;
+          git push -u origin $branch;;
         [n])
           echo "Ok! Then...";
           read "branch?Enter sync branch-name!!: ";
@@ -67,14 +58,7 @@
           echo "Add & Commit";
           git add .;
           git commit --allow-empty; 
-          echo -n "Push there?(y/n)";
-          read -n 1 answer2;
-          case "$answer2" in;
-          [y])
-            echo "Push"
-            git push -u origin $branch;;
-          [*])
-            echo "Retry!!";;
+          git push -u origin $branch;;
           esac;;
         *) echo "Enter y or n!!!";;
         esac
