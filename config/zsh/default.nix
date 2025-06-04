@@ -41,22 +41,25 @@
         read "answer?Sync there? (y/n): "
         case "$answer" in
         [y])
-          echo "Pull";
           git pull;
-          echo "Add & Commit";
+          echo "";
           git add .;
+          echo "";
           git commit --allow-empty;
+          echo "";
           git push -u origin $branch;;
         [n])
           echo "Ok! Then...";
           read "branch?Enter sync branch-name!!: ";
           echo "Check out";
           git checkout $branch;
-          echo "Pull";
+          echo "";
           git pull; 
-          echo "Add & Commit";
+          echo "";
           git add .;
+          echo "";
           git commit --allow-empty;
+          echo "";
           git push -u origin $branch;;
         *) echo "Enter y or n!!!";;
         esac
