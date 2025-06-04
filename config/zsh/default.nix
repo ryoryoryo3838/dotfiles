@@ -41,6 +41,7 @@
         read "answer?Sync there? (y/n): "
         case "$answer" in
         [y])
+          git pull
           git add .;
           git commit --allow-empty;
           git push -u origin $branch;;
@@ -48,6 +49,7 @@
           echo "Ok! Then...";
           read "branch?Enter sync branch-name!!: ";
           git checkout $branch;
+          git pull
           git add .;
           git commit --allow-empty;
           git push -u origin $branch;;
