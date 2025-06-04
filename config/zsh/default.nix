@@ -38,7 +38,7 @@
         branch=$(git rev-parse --abbrev-ref HEAD) 
         git --no-pager branch
         echo "Current branch: $branch"
-        echo "answer?Sync there? (y/n): "
+        read -n 1 "answer?Sync there? (y/n): "
         case "$answer" in
         [y])
           echo "Pull";
