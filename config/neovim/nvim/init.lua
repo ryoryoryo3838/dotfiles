@@ -27,3 +27,5 @@ require "lazy_setup"
 require "polish"
 
 require "filetype"
+
+vim.o.shell = "/home/miyax/.nix-profile/bin/zsh"

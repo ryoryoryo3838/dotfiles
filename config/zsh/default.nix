@@ -55,8 +55,8 @@
         esac
       }
       
-      clone(repo){
-        git clone https://github.com/ryoryoryo3838/$repo.git
+      clone(){
+        git clone https://github.com/ryoryoryo3838/$1.git
       }
     '';
   };
