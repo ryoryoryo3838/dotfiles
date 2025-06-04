@@ -43,21 +43,28 @@
         [y])
           echo "Pull";
           git pull;
-          echo "Add & Commit";
-          git add .;
-          git commit --allow-empty;
-          git push -u origin $branch;;
+          read "answer2?Commit & Push? (y/n): "
+          if ["$answer2" == y]:
+            echo "Add & Commit";
+            git add .;
+            git commit --allow-empty;
+            git push -u origin $branch;;
+          fi
         [n])
           echo "Ok! Then...";
           read "branch?Enter sync branch-name!!: ";
           echo "Check out";
           git checkout $branch;
           echo "Pull";
-          git pull;
-          echo "Add & Commit";
-          git add .;
-          git commit --allow-empty; 
-          git push -u origin $branch;;
+          git pull; 
+
+          read "anser2?Commit & Push? (y/n): "
+          if ["$answer2" == y]:
+            echo "Add & Commit";
+            git add .;
+            git commit --allow-empty;
+            git push -u origin $branch;;
+          fi;;
         *) echo "Enter y or n!!!";;
         esac
       }
