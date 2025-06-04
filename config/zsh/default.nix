@@ -38,7 +38,8 @@
         branch=$(git rev-parse --abbrev-ref HEAD) 
         git --no-pager branch
         echo "Current branch: $branch"
-        read "answer?Sync there? (y/n): "
+        echo -n "Sync there? (y/n): "
+        read -n 1 answer
         case "$answer" in
         [y])
           echo "Pull";
@@ -46,8 +47,16 @@
           echo "Add & Commit";
           git add .;
           git commit --allow-empty;
-          echo "Push";
-          git push -u origin $branch;;
+          echo "Commited!!";
+          echo -n "Push there?(y/n)";
+          read -n 1 answer2;
+          case "$answer2" in;
+          [y])
+            echo "Push"
+            git push -u origin $branch;;
+          [*])
+            echo "Retry!!";;
+          esac;;
         [n])
           echo "Ok! Then...";
           read "branch?Enter sync branch-name!!: ";
@@ -57,9 +66,16 @@
           git pull;
           echo "Add & Commit";
           git add .;
-          git commit --allow-empty;
-          echo "Push";
-          git push -u origin $branch;;
+          git commit --allow-empty; 
+          echo -n "Push there?(y/n)";
+          read -n 1 answer2;
+          case "$answer2" in;
+          [y])
+            echo "Push"
+            git push -u origin $branch;;
+          [*])
+            echo "Retry!!";;
+          esac;;
         *) echo "Enter y or n!!!";;
         esac
       }
