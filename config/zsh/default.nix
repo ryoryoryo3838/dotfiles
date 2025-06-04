@@ -59,7 +59,6 @@
           git add .;
           git commit --allow-empty; 
           git push -u origin $branch;;
-          esac;;
         *) echo "Enter y or n!!!";;
         esac
       }
