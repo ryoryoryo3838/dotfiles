@@ -20,6 +20,8 @@
 
     # pkgs.libgcc
     # pkgs.nodejs_24
+
+    pkgs.openssh
   
   ];
   
