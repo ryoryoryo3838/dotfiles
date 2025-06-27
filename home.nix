@@ -19,10 +19,7 @@
     pkgs.direnv
 
     # pkgs.libgcc
-    # pkgs.nodejs_24
-
-    pkgs.openssh
-  
+    pkgs.nodejs_24
   ];
   
   imports = [
