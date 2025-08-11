@@ -1,0 +1,52 @@
+# !/bin/bash
+
+# exit immediately
+set -e
+
+# brew
+if [[ ! $(command -v brew) ]]; then
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+else
+	echo "Homebrew  has already been installed"
+fi
+
+# install packages in Brewfile with Homebrew
+cd /var/home/miyax/dotfiles
+brew bundle
+
+# setting zsh
+# install zinit (may be optional)
+bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+# install oh-my-zsh
+#if [[ -d "/var/home/miyax/.oh-my-zsh" ]]; then
+#else
+#	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+#fi
+echo
+echo "oh-my-zsh plugins is installing..."
+echo
+# oh-my-zsh plugins
+cd ~
+ZSH_Plugins=( \
+	"fdellwing/zsh-bat" \
+	"zsh-users/zsh-syntax-highlighting" \
+	"zsh-users/zsh-autosuggestions" \
+	#"z-shell/zsh-eza" \ (なんかうまくいかないのでzinitでいれる
+	#"z-shell/zsh-zoxide" \
+)
+for zp in "${ZSH_Plugins[@]}"; do
+	gh_dir="https://github.com/${zp}"
+	plugin_dir="${HOME}/.oh-my-zsh/custom/plugins/${zp##*/}"
+	if [[ ! -d "${plugin_dir}" ]]; then
+		git clone "${gh_dir}" "${plugin_dir}"
+		echo
+	else
+		echo "${zp##*/} is already installed."
+	fi
+done
+
+# mv dots bak
+mv $HOME/.zshrc $HOME/.zshrc_bak
+
+# set symlink
+stow -d $HOME/dotfiles/ -t $HOME/ zsh bash git
