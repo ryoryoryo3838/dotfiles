@@ -15,38 +15,40 @@ cd /var/home/miyax/dotfiles
 brew bundle
 
 # setting zsh
-# install zinit (may be optional)
-bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 # install oh-my-zsh
-#if [[ -d "/var/home/miyax/.oh-my-zsh" ]]; then
+#if [[ -d "$HOME/.oh-my-zsh" ]]; then
+#	echo "oh-my-zsh already exist"
 #else
-#	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #fi
 echo
 echo "oh-my-zsh plugins is installing..."
 echo
+# install zinit (may be optional)
+#bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 # oh-my-zsh plugins
 cd ~
-ZSH_Plugins=( \
-	"fdellwing/zsh-bat" \
-	"zsh-users/zsh-syntax-highlighting" \
-	"zsh-users/zsh-autosuggestions" \
+#ZSH_Plugins=( \
+#	"fdellwing/zsh-bat" \
+#	"zsh-users/zsh-syntax-highlighting" \
+#	"zsh-users/zsh-autosuggestions" \
 	#"z-shell/zsh-eza" \ (なんかうまくいかないのでzinitでいれる
 	#"z-shell/zsh-zoxide" \
-)
-for zp in "${ZSH_Plugins[@]}"; do
-	gh_dir="https://github.com/${zp}"
-	plugin_dir="${HOME}/.oh-my-zsh/custom/plugins/${zp##*/}"
-	if [[ ! -d "${plugin_dir}" ]]; then
-		git clone "${gh_dir}" "${plugin_dir}"
-		echo
-	else
-		echo "${zp##*/} is already installed."
-	fi
-done
+#)
+#for zp in "${ZSH_Plugins[@]}"; do
+#	gh_dir="https://github.com/${zp}"
+#	plugin_dir="${HOME}/.oh-my-zsh/custom/plugins/${zp##*/}"
+#	if [[ ! -d "${plugin_dir}" ]]; then
+#		#git clone "${gh_dir}" "${plugin_dir}"
+#		echo
+#	else
+#		echo "${zp##*/} is already installed."
+#	fi
+#done
 
-# mv dots bak
-mv $HOME/.zshrc $HOME/.zshrc_bak
+#rm $HOME/.zsh* 
 
 # set symlink
-stow -d $HOME/dotfiles/ -t $HOME/ zsh bash git
+stow -d $HOME/dotfiles/ -t $HOME/ zsh 
+stow -d $HOME/dotfiles/ -t $HOME/ git
+# stow -d $HOME/dotfiles/ -t $HOME/ bash

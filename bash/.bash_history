@@ -68,3 +68,14 @@ cd dotfiles/
 ./init 
 cat .zshrc.pre-oh-my-zsh 
 zsh
+ls
+distrobox
+distrobox create
+distrobox create --name python --image docker.io/library/ubuntu:latest --home /home/miyax/Documents/Python --bind /home/miyax/dotfiles:dotfiles
+distrobox create --name python --image docker.io/library/ubuntu:latest --home /home/miyax/Documents/Python --bind "$HOME/dotfiles:/home/Documents/Python/dotfiles
+"
+distrobox create --name python --image docker.io/library/ubuntu:latest --home /home/miyax/Documents/Python --bind "$HOME/dotfiles:/home/Documents/Python/dotfiles"
+distrobox create --name python --image docker.io/library/ubuntu:latest --home /home/miyax/Documents/Python
+distrobox enter python
+distrobox list
+distrobox enter python
