@@ -79,3 +79,10 @@ distrobox create --name python --image docker.io/library/ubuntu:latest --home /h
 distrobox enter python
 distrobox list
 distrobox enter python
+echo $SHELL
+ls -a
+./dotfiles/init 
+rm .oh-my-zsh/ -fr
+sudo rm .oh-my-zsh/-fr
+sudo rm .oh-my-zsh/ -fr
+./dotfiles/init 

@@ -3,15 +3,22 @@
 # exit immediately
 set -e
 
+# the case of debian
+# to install brew
+# sudo apt install git build essential
+# add this sentence to .bashrc↓
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+
 # brew
 if [[ ! $(command -v brew) ]]; then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
 	echo "Homebrew  has already been installed"
 fi
-
+source $HOME/.bashrc
 # install packages in Brewfile with Homebrew
-cd /var/home/miyax/dotfiles
+cd $HOME/dotfiles
 brew bundle
 
 # setting zsh
