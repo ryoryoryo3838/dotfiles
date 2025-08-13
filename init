@@ -7,8 +7,8 @@ set -e
 # to install brew
 # sudo apt install git build essential
 # add this sentence to .bashrc↓
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> .bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # brew
 if [[ ! $(command -v brew) ]]; then
@@ -16,7 +16,9 @@ if [[ ! $(command -v brew) ]]; then
 else
 	echo "Homebrew  has already been installed"
 fi
+
 source $HOME/.bashrc
+
 # install packages in Brewfile with Homebrew
 cd $HOME/dotfiles
 brew bundle
@@ -28,13 +30,13 @@ brew bundle
 #else
 	#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 #fi
-echo
-echo "oh-my-zsh plugins is installing..."
-echo
+#echo
+#echo "oh-my-zsh plugins is installing..."
+#echo
 # install zinit (may be optional)
 #bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 # oh-my-zsh plugins
-cd ~
+#cd ~
 #ZSH_Plugins=( \
 #	"fdellwing/zsh-bat" \
 #	"zsh-users/zsh-syntax-highlighting" \
@@ -58,4 +60,8 @@ cd ~
 # set symlink
 stow -d $HOME/dotfiles/ -t $HOME/ zsh 
 stow -d $HOME/dotfiles/ -t $HOME/ git
+if ![ -d $HOME/.config/nvim ]; then
+	mkdir -p $HOME/.confin/nvim
+fi
+stow -d $HOME/dotfiles/ -t $HOME/.config/nvim nvim
 # stow -d $HOME/dotfiles/ -t $HOME/ bash
