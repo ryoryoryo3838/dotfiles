@@ -39,6 +39,7 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
+      "ocamllsp"
       -- "pyright"
     },
     -- customize language server configuration options passed to `lspconfig`
@@ -48,6 +49,14 @@ return {
     },
     -- customize how language servers are attached
     handlers = {
+      ocamllsp = function(_, opts)
+        local util = require "lspconfig.util"
+        local ocamllsp_path = vim.fn.system("opam var bin"):gsub("%s+", "") .. "/ocamllsp"
+        opts.cmd = { ocamllsp_path }
+        opts.filetypes = { "ocaml", "reason" }
+        opts.root_dir = util.root_pattern("*.opam", "dune-project", ".git")
+        require("lspconfig").ocamllsp.setup(opts)
+      end,
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
       -- function(server, opts) require("lspconfig")[server].setup(opts) end
 

@@ -89,3 +89,38 @@ sudo rm .oh-my-zsh/ -fr
 apt
 dnf
 ga .
+la
+ls
+..
+cd ..
+ls
+./dotfiles/init 
+zsh
+ls
+cd miyax/
+ls
+ls -a
+cd ..
+ls -a
+nvim .zshrc
+ls
+rm miyax/ -fr
+sudo rm miyax/ -fr
+ls -a
+ls
+cd dotfiles/
+nvim init 
+nvim Brewfile 
+nvim .zshrc
+nvim zsh/.zshrc 
+brew
+nvim zsh/.zshrc 
+ls
+..
+zsh
+envrc
+cd 
+ls
+./dotfiles/init 
+ls
+zsh
