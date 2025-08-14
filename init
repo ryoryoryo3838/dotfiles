@@ -43,11 +43,12 @@ brew bundle
 echo "making bakup..."
 mkdir -p $HOME/.init_bak
 
+# なんかmvがsymlinkされてるフォルダだとうまくいかず
+
 # .oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
 	echo "oh-my-zsh already exist"
-	echo "moving current .oh-my-zsh to .oh-my-zsh_bak"
-	mv $HOME/.oh-my-zsh/ $HOME/.init_bak/.oh-my-zsh_bak
+	#mv $HOME/.oh-my-zsh/ $HOME/.oh-my-zsh_bak
 fi
 # .zshrc
 if [ -d "$HOME/.zshrc" ]; then
@@ -69,7 +70,7 @@ fi
 if [ -d "$HOME/.config/nvim" ]; then
 	echo ".config/nvim already exist"
 	echo "moving current .config/nvim to .config/nvim_bak"
-	mv $HOME/.config/nvim/ $HOME/.init_bak/nvim_bak
+	#mv $HOME/.config/nvim/ $HOME/.init_bak/nvim_bak
 	mkdir -p $HOME/.config/nvim
 else
 	mkdir -p $HOME/.config/nvim

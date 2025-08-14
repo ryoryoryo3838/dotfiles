@@ -1,3 +1,5 @@
+### ZSHの設定 ###
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -56,11 +58,17 @@ compinit -d "$zcompdir/.zcompdump"
 # oh-my-zshの読み込み
 
 source $ZSH/oh-my-zsh.sh
-
 eval "$(starship init zsh)"
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" >> $HOME/.bashrc
 
+### ZSHの設定終わり
+
+# load pyenv if existed
 if [ -d $HOME/.pyenv ]; then
 	export PYENV_ROOT="$HOME/.pyenv"
 	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 	eval "$(pyenv init - zsh)"
 fi
+
+export EDITOR=nvim
+eval "$(direnv hook zsh)"
