@@ -72,3 +72,13 @@ fi
 
 export EDITOR=nvim
 eval "$(direnv hook zsh)"
+
+
+chpwd() {
+    # カレントディレクトリがDistroboxの対象ディレクトリでない場合に、
+    # かつDistroboxセッション内にいる場合にexitする
+    if [[ "$PWD" != "/path/to/your/project" && -n "$DISTROBOX_HOST_ID" ]]; then
+        echo "Exiting Distrobox session..."
+        exit
+    fi
+}
