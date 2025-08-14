@@ -86,3 +86,6 @@ rm .oh-my-zsh/ -fr
 sudo rm .oh-my-zsh/-fr
 sudo rm .oh-my-zsh/ -fr
 ./dotfiles/init 
+apt
+dnf
+ga .

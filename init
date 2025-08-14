@@ -5,12 +5,12 @@ set -e
 
 # git
 echo "Checking your current shell status..."
-if [ $(command -v git)]; then
+if [ $(command -v git) ]; then
 	echo "git is already installed"
 else
 	echo "git is not installed. Installing git..."
 	# check apt
-	if [! $(command -v apt) ]; then
+	if [ ! $(command -v apt) ]; then
 		echo "This is not a Debian-based system. Please install git and build-essential manually."
 		exit 1
 	fi
@@ -46,30 +46,31 @@ mkdir -p $HOME/.init_bak
 # .oh-my-zsh
 if [ -d "$HOME/.oh-my-zsh" ]; then
 	echo "oh-my-zsh already exist"
-	echo "moving current .oh-my-zsh to .oh-my-zsh.bak"
-	mv $HOME/.oh-my-zsh $HOME/.init_bak/.oh-my-zsh.bak
+	echo "moving current .oh-my-zsh to .oh-my-zsh_bak"
+	mv $HOME/.oh-my-zsh/ $HOME/.init_bak/.oh-my-zsh_bak
 fi
 # .zshrc
-if [ -d "$HOME/.zshrc"]; then
+if [ -d "$HOME/.zshrc" ]; then
 	echo ".zshrc already exist"
-	echo "moving current .zshrc to .zshrc.bak"
-	mv $HOME/.zshrc $HOME/.init_bak/.zshrc.bak
-	mv $HOME/.zprofile $HOME/.init_bak/.zprofile.bak
-	mv $HOME/.zsh_history $HOME/.init_bak/.zsh_history.bak
+	echo "moving current .zshrc to .zshrc_bak"
+	mv $HOME/.zshrc $HOME/.init_bak/.zshrc_bak
+	mv $HOME/.zprofile $HOME/.init_bak/.zprofile_bak
+	mv $HOME/.zsh_history $HOME/.init_bak/.zsh_history_bak
 fi
 
 # .gticonfig
 if [ -d "$HOME/.gitconfig" ]; then
 	echo ".gitconfig already exist"
-	echo "moving current .gitconfig to .gitconfig.bak"
-	mv $HOME/.gitconfig $HOME/.init_bak/.gitconfig.bak
+	echo "moving current .gitconfig to .gitconfig_bak"
+	mv $HOME/.gitconfig $HOME/.init_bak/.gitconfig_bak
 fi
 
 # .nvim
 if [ -d "$HOME/.config/nvim" ]; then
 	echo ".config/nvim already exist"
-	echo "moving current .config/nvim to .config/nvim.bak"
-	mv $HOME/.config/nvim $HOME/.init_bak/.config/nvim.bak
+	echo "moving current .config/nvim to .config/nvim_bak"
+	mv $HOME/.config/nvim/ $HOME/.init_bak/nvim_bak
+	mkdir -p $HOME/.config/nvim
 else
 	mkdir -p $HOME/.config/nvim
 fi
