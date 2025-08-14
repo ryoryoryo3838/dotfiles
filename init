@@ -3,65 +3,79 @@
 # exit immediately
 set -e
 
-# the case of debian
-# to install brew
-# sudo apt install git build essential
-# add this sentence to .bashrc↓
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> .bashrc
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-# brew
-if [[ ! $(command -v brew) ]]; then
-	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# git
+echo "Checking your current shell status..."
+if [ $(command -v git)]; then
+	echo "git is already installed"
 else
-	echo "Homebrew  has already been installed"
+	echo "git is not installed. Installing git..."
+	# check apt
+	if [! $(command -v apt) ]; then
+		echo "This is not a Debian-based system. Please install git and build-essential manually."
+		exit 1
+	fi
+	sudo apt update
+	sudo apt install -y git build-essential git
 fi
 
-source $HOME/.bashrc
+# brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+if [ $(command -v brew) ]; then
+	echo "Homebrew  is already installed"
+else
+	echo "Homebrew is not installed. Installing Homebrew..."
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	if [! grep -q 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' $HOME/.bashrc ]; then
+		echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc
+	fi
+	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 
 # install packages in Brewfile with Homebrew
 cd $HOME/dotfiles
 brew bundle
 
 # setting zsh
-# install oh-my-zsh
-#if [[ -d "$HOME/.oh-my-zsh" ]]; then
-#	echo "oh-my-zsh already exist"
-#else
-	#sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-#fi
-#echo
-#echo "oh-my-zsh plugins is installing..."
-#echo
-# install zinit (may be optional)
-#bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
-# oh-my-zsh plugins
-#cd ~
-#ZSH_Plugins=( \
-#	"fdellwing/zsh-bat" \
-#	"zsh-users/zsh-syntax-highlighting" \
-#	"zsh-users/zsh-autosuggestions" \
-	#"z-shell/zsh-eza" \ (なんかうまくいかないのでzinitでいれる
-	#"z-shell/zsh-zoxide" \
-#)
-#for zp in "${ZSH_Plugins[@]}"; do
-#	gh_dir="https://github.com/${zp}"
-#	plugin_dir="${HOME}/.oh-my-zsh/custom/plugins/${zp##*/}"
-#	if [[ ! -d "${plugin_dir}" ]]; then
-#		#git clone "${gh_dir}" "${plugin_dir}"
-#		echo
-#	else
-#		echo "${zp##*/} is already installed."
-#	fi
-#done
 
-#rm $HOME/.zsh* 
+# check stow files
+
+echo "making bakup..."
+mkdir -p $HOME/.init_bak
+
+# .oh-my-zsh
+if [ -d "$HOME/.oh-my-zsh" ]; then
+	echo "oh-my-zsh already exist"
+	echo "moving current .oh-my-zsh to .oh-my-zsh.bak"
+	mv $HOME/.oh-my-zsh $HOME/.init_bak/.oh-my-zsh.bak
+fi
+# .zshrc
+if [ -d "$HOME/.zshrc"]; then
+	echo ".zshrc already exist"
+	echo "moving current .zshrc to .zshrc.bak"
+	mv $HOME/.zshrc $HOME/.init_bak/.zshrc.bak
+	mv $HOME/.zprofile $HOME/.init_bak/.zprofile.bak
+	mv $HOME/.zsh_history $HOME/.init_bak/.zsh_history.bak
+fi
+
+# .gticonfig
+if [ -d "$HOME/.gitconfig" ]; then
+	echo ".gitconfig already exist"
+	echo "moving current .gitconfig to .gitconfig.bak"
+	mv $HOME/.gitconfig $HOME/.init_bak/.gitconfig.bak
+fi
+
+# .nvim
+if [ -d "$HOME/.config/nvim" ]; then
+	echo ".config/nvim already exist"
+	echo "moving current .config/nvim to .config/nvim.bak"
+	mv $HOME/.config/nvim $HOME/.init_bak/.config/nvim.bak
+else
+	mkdir -p $HOME/.config/nvim
+fi
 
 # set symlink
 stow -d $HOME/dotfiles/ -t $HOME/ zsh 
 stow -d $HOME/dotfiles/ -t $HOME/ git
-if ![ -d $HOME/.config/nvim ]; then
-	mkdir -p $HOME/.confin/nvim
-fi
 stow -d $HOME/dotfiles/ -t $HOME/.config/nvim nvim
 # stow -d $HOME/dotfiles/ -t $HOME/ bash
