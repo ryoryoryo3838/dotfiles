@@ -25,7 +25,7 @@ if [ $(command -v brew) ]; then
 else
 	echo "Homebrew is not installed. Installing Homebrew..."
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	if [ ! $(grep -q 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' $HOME/.bashrc) ]; then
+	if [ grep -q 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' $HOME/.bashrc ]; then
 		echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> $HOME/.bashrc
 	fi
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -81,3 +81,8 @@ stow -d $HOME/dotfiles/ -t $HOME/ zsh
 stow -d $HOME/dotfiles/ -t $HOME/ git
 stow -d $HOME/dotfiles/ -t $HOME/.config/nvim nvim
 # stow -d $HOME/dotfiles/ -t $HOME/ bash
+
+Shell="${SHELL##*/}"
+echo "Restarting $Shell"
+cd 
+source ".${Shell}rc"

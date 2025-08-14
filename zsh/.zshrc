@@ -82,3 +82,6 @@ chpwd() {
         exit
     fi
 }
+
+# Created by `pipx` on 2025-08-14 14:16:16
+export PATH="$PATH:/var/home/miyax/Documents/OCaml/.local/bin"

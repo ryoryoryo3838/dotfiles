@@ -10,3 +10,6 @@ then
     PATH="$HOME/.local/bin:$PATH"
 fi
 export PATH
+
+# Created by `pipx` on 2025-08-14 14:16:16
+export PATH="$PATH:/var/home/miyax/Documents/OCaml/.local/bin"
