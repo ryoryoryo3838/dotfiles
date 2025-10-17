@@ -18,9 +18,12 @@ ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/sheldon/ $HOME/.config/
 
 # source $HOME/.zshrc
-eval "$(devbox global shellenv)"
+eval "$(devbox global shellenv --preserve-path-stack -r)"
+hash -r
+
+#git
+ln -sf $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 
 ### symlink
 # .config
 stow -d $HOME/dotfiles -t $HOME/.config/ config
-stow -d $HOME/dotfiles -t $HOME git
