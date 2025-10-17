@@ -1,0 +1,7 @@
+eval "$(devbox global shellenv)"
+eval "$(sheldon source)"
+
+# for ohmyzsh
+export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
+
+export EDITOR=nvim
