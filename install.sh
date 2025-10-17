@@ -13,7 +13,8 @@ rm "$DEV_GLOBAL_DIR/devbox" -r
 ln -sf $HOME/dotfiles/devbox $DEV_GLOBAL_DIR
 
 ### Shell
-ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
+ln -sf $HOME/dotfiles/shell/bashrc $HOME/.bashrc
+ln -sf $HOME/dotfiles/shell/zshrc $HOME/.zshrc
 # sheldon
 ln -sf $HOME/dotfiles/sheldon/ $HOME/.config/
 
