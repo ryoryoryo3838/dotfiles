@@ -10,7 +10,8 @@
     "eza@latest",
     "zoxide@latest",
     "direnv@latest",
-    "stow@latest"
+    "stow@latest",
+    "zsh@latest"
   ],
   "shell": {
     "init_hook": [

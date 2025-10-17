@@ -18,8 +18,9 @@ ln -sf $HOME/dotfiles/zsh/zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/sheldon/ $HOME/.config/
 
 # source $HOME/.zshrc
-# refresh-global
+eval "$(devbox global shellenv)"
 
 ### symlink
 # .config
 stow -d $HOME/dotfiles -t $HOME/.config/ config
+stow -d $HOME/dotfiles -t $HOME git
