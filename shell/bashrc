@@ -1,2 +1,2 @@
-eval $(devbox global shellenv)
-zsh
+eval "$(devbox global shellenv --preserve-path-stack -r)" 
+hash -r
