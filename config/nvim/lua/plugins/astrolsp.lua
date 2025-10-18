@@ -53,7 +53,7 @@ return {
         local util = require "lspconfig.util"
         local ocamllsp_path = vim.fn.system("opam var bin"):gsub("%s+", "").. "/ocamllsp"
         opts.cmd = { ocamllsp_path}
-        opts.filetypes = { "ocaml", "readon"}
+        opts.filetypes = { "ocaml", "reason"}
         opts.root_dir = util.root_pattern("*.opam", "dune-project")
         require("lspconfig").ocamllsp.setup(opts)
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
@@ -62,6 +62,7 @@ return {
       -- the key is the server that is being setup with `lspconfig`
       -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
       -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+    end
     },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
