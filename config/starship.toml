@@ -4,7 +4,7 @@ disabled = true
 # Devbox環境名を表示するためのカスタムモジュールを定義
 [custom.devbox_name]
 # DEVBOX_PROMPT_NAMEという環境変数の値を取得して表示します
-command = "echo $DEVBOX_PROMPT_NAME"
+command = 'echo "Current Env:$DEVBOX_PROMPT_NAME"'
 when = "test -n \"$DEVBOX_PROMPT_NAME\"" # DEVBOX_PROMPT_NAMEが設定されている場合のみ表示
 format = " [$output]($style) " # 出力を囲むフォーマットを設定
 style = "bold blue" # 表示スタイルを設定（例: 太字の黄色）
