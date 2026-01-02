@@ -11,7 +11,12 @@
     "zoxide@latest",
     "direnv@latest",
     "stow@latest",
-    "zsh@latest"
+    "zsh@latest",
+    "jdk8@latest",
+    "zenity@latest",
+    "sqlite@latest",
+    "docker-compose@latest",
+    "pandoc@latest"
   ],
   "shell": {
     "init_hook": [

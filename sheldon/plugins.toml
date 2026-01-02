@@ -12,16 +12,17 @@
 
 shell = "zsh"
 
-[plugins]
+[templates]
+defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
+[plugins.zsh-defer]
+github = "romkatv/zsh-defer"
 [plugins.oh-my-zsh]
 github = "ohmyzsh/ohmyzsh"
 
-[plugins.zsh-autosuggestions]
-github = "zsh-users/zsh-autosuggestions"
-
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
+apply = ["defer"]
 
 [plugins.zsh-eza]
 github = "z-shell/zsh-eza"
@@ -29,18 +30,33 @@ github = "z-shell/zsh-eza"
 [plugins.zoxide]
 github = "ajeetdsouza/zoxide"
 
+
+[plugins.zsh-completions]
+github = "zsh-users/zsh-completions"
+
+[plugins.zsh-autosuggestions]
+github = "zsh-users/zsh-autosuggestions"
+apply = ["defer"]
+
+# custom
 [plugins.starship]
+
 inline = 'eval "$(starship init zsh)"'
-
-
-### devboxはsheldonより先に読み込まなきゃいけないので.zshrcに直接書く
-#[plugins.devbox]
-#inline = 'eval "$(devbox global shellenv)"'
 
 [plugins.direnv]
 inline = 'eval "$(direnv hook zsh)"'
 
-# For example:
-#
-# [plugins.base16]
-# github = "chriskempson/base16-shell"
+[plugins.bindkey]
+inline = 'bindkey -v'
+
+[plugins.chpwd]
+inline = 'chpwd() { ls }'
+
+[plugins.alias]
+inline = 'plugins=(copyfile git)'
+
+[plugins.editor]
+inline = 'export EDITOR=nvim'
+### devboxはsheldonより先に読み込まなきゃいけないので.zshrcに直接書く
+#[plugins.devbox]
+#inline = 'eval "$(devbox global shellenv)"'

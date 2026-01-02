@@ -3,3 +3,9 @@
 	email = miya.klis.default@gmail.com
 [init]
 	defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/miyax/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/miyax/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/gh auth git-credential
