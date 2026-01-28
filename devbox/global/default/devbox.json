@@ -18,7 +18,9 @@
     "docker-compose@latest",
     "pandoc@latest",
     "xclip@latest",
-    "tailscale@latest"
+    "tailscale@latest",
+    "nodejs@latest",
+    "lazygit@latest"
   ],
   "shell": {
     "init_hook": [

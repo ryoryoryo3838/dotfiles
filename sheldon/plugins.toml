@@ -79,8 +79,6 @@ fi
 [plugins.editor]
 inline = 'export EDITOR=nvim'
 
-[plugins.fzf]
-github = "junegunn/fzf"
 ### devboxはsheldonより先に読み込まなきゃいけないので.zshrcに直接書く
 #[plugins.devbox]
 #inline = 'eval "$(devbox global shellenv)"'
