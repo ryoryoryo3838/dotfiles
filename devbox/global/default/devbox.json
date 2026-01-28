@@ -16,7 +16,9 @@
     "zenity@latest",
     "sqlite@latest",
     "docker-compose@latest",
-    "pandoc@latest"
+    "pandoc@latest",
+    "xclip@latest",
+    "tailscale@latest"
   ],
   "shell": {
     "init_hook": [

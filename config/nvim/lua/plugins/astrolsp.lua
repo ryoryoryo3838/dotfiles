@@ -13,7 +13,7 @@ return {
     -- Configuration table of features provided by AstroLSP
     features = {
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      inlay_hints = true, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
     },
     -- customize lsp formatting options
@@ -39,13 +39,25 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      "ocamllsp"
+      "ocamllsp",
       -- "pyright"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
       -- clangd = { capabilities = { offsetEncoding = "utf-8" } },
+      ocamllsp = {
+        settings = {
+          codelens = { enable = true },
+          inlayHints = {
+            hintPatternVariables = true,
+            hintLetBindings = true,
+          },
+          extendedHover = { enable = true },
+          syntaxDocumentation = { enable = true },
+          merlinJumpCodeActions = { enable = true },
+        }
+      }
     },
     -- customize how language servers are attached
     handlers = {

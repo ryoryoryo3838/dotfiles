@@ -15,6 +15,7 @@ ln -sf $HOME/dotfiles/devbox $DEV_GLOBAL_DIR
 ### Shell
 ln -sf $HOME/dotfiles/shell/bashrc $HOME/.bashrc
 ln -sf $HOME/dotfiles/shell/zshrc $HOME/.zshrc
+ln -sf $HOME/dotfiles/shell/rm.sh $HOME/rm.sh
 # sheldon
 ln -sf $HOME/dotfiles/sheldon/ $HOME/.config/
 

@@ -26,4 +26,23 @@ end
 require "lazy_setup"
 require "polish"
 
+-- .reをreasonとして認識させる
+vim.filetype.add({
+  extension = {
+    re = "reason",
+    rei = "reason", 
+  },
+})
+
+require("conform").setup({
+  formatters_by_ft = {
+    elm = { "elm-format" },
+  },
+  -- 保存時のフォーマット設定
+  format_on_save = {
+    timeout_ms = 500,
+    lsp_fallback = true,
+  },
+})
+
 vim.opt.clipboard:append({"unnamedplus"})

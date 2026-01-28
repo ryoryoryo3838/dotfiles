@@ -15,10 +15,25 @@ shell = "zsh"
 [templates]
 defer = "{{ hooks | get: \"pre\" | nl }}{% for file in files %}zsh-defer source \"{{ file }}\"\n{% endfor %}{{ hooks | get: \"post\" | nl }}"
 
+[plugins]
+
 [plugins.zsh-defer]
 github = "romkatv/zsh-defer"
+
 [plugins.oh-my-zsh]
 github = "ohmyzsh/ohmyzsh"
+
+[plugins.git]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/git"
+
+[plugins.copypath]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/copypath"
+
+[plugins.copyfile]
+github = "ohmyzsh/ohmyzsh"
+dir = "plugins/copyfile"
 
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
@@ -50,10 +65,16 @@ inline = 'eval "$(direnv hook zsh)"'
 inline = 'bindkey -v'
 
 [plugins.chpwd]
-inline = 'chpwd() { ls }'
+inline = 'chpwd() { ls --color=auto }'
 
-[plugins.alias]
-inline = 'plugins=(copyfile git)'
+[plugins.ocaml]
+inline = '''
+if (( $+command[opam])); then
+  if [[ -z "$OPAM_SWITCH_PREFIX" ]]; then
+    eval "$(opam env)"
+  fi
+fi
+'''
 
 [plugins.editor]
 inline = 'export EDITOR=nvim'
