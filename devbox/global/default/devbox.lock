@@ -510,6 +510,54 @@
         }
       }
     },
+    "openvpn@latest": {
+      "last_modified": "2026-01-23T17:20:52Z",
+      "resolved": "github:NixOS/nixpkgs/a1bab9e494f5f4939442a57a58d0449a109593fe#openvpn",
+      "source": "devbox-search",
+      "version": "2.6.14",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3qkabgh4db0lav2ryp0zp3wrdrr8z8kx-openvpn-2.6.14",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/3qkabgh4db0lav2ryp0zp3wrdrr8z8kx-openvpn-2.6.14"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/xbpm9l7prn3f2c8711dpf9yj3v71fvy7-openvpn-2.6.14",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/xbpm9l7prn3f2c8711dpf9yj3v71fvy7-openvpn-2.6.14"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/49ydxp502hg420wh3avm1fpvrn46859z-openvpn-2.6.14",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/49ydxp502hg420wh3avm1fpvrn46859z-openvpn-2.6.14"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9q46x1q4v7zzh8liqlndm9g48ccj50pr-openvpn-2.6.14",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9q46x1q4v7zzh8liqlndm9g48ccj50pr-openvpn-2.6.14"
+        }
+      }
+    },
     "pandoc@latest": {
       "last_modified": "2025-11-23T21:50:36Z",
       "resolved": "github:NixOS/nixpkgs/ee09932cedcef15aaf476f9343d1dea2cb77e261#pandoc",

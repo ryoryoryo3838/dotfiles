@@ -20,7 +20,8 @@
     "xclip@latest",
     "tailscale@latest",
     "nodejs@latest",
-    "lazygit@latest"
+    "lazygit@latest",
+    "openvpn@latest"
   ],
   "shell": {
     "init_hook": [
