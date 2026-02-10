@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": {
+    "uv":           "latest",
+    "ocaml":        "latest",
+    "dune_3":       "latest",
+    "nodejs":       "latest",
+    "opam":         "latest",
+    "dotnet-sdk_9": "latest"
+  },
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null",
+      "export DEVBOX_PROMPT_NAME='Contest'"
+    ],
+    "scripts": {
+      "test": [
+        "echo \"Error: no test specified\" && exit 1"
+      ]
+    }
+  }
+}

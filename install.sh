@@ -12,9 +12,11 @@ rm "$DEV_GLOBAL_DIR/devbox" -r
 
 ln -sf $HOME/dotfiles/devbox $DEV_GLOBAL_DIR
 
-### Shell
-ln -sf $HOME/dotfiles/shell/bashrc $HOME/.bashrc
-ln -sf $HOME/dotfiles/shell/zshrc $HOME/.zshrc
+# dots
+ln -sf $HOME/dotfiles/dots/bashrc $HOME/.bashrc
+ln -sf $HOME/dotfiles/dots/zshrc $HOME/.zshrc
+ln -sf $HOME/dotfiles/dots/wezterm.lua $HOME/.wezterm.lua
+# Shell
 ln -sf $HOME/dotfiles/shell/rm.sh $HOME/rm.sh
 # sheldon
 ln -sf $HOME/dotfiles/sheldon/ $HOME/.config/
@@ -28,5 +30,16 @@ ln -sf $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 
 ### symlink
 # .config
-stow -d $HOME/dotfiles -t $HOME font
+stow -d $HOME/dotfiles -t $HOME/.fonts/ fonts
 stow -d $HOME/dotfiles -t $HOME/.config/ config
+
+# local devbox
+DOC_DIR="$HOME/Documents/"
+localDir=(
+  "R","Python"
+  )
+for dir in localDir
+do
+  mkdir -p "$HOME/Documents/${dir}"
+  stow -d $HOME/dotfiles/devbox/local -t "$HOME/Documents/${dir}" "${dir}"
+done
