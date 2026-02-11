@@ -32,14 +32,3 @@ ln -sf $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 # .config
 stow -d $HOME/dotfiles -t $HOME/.fonts/ fonts
 stow -d $HOME/dotfiles -t $HOME/.config/ config
-
-# local devbox
-DOC_DIR="$HOME/Documents/"
-localDir=(
-  "R","Python"
-  )
-for dir in localDir
-do
-  mkdir -p "$HOME/Documents/${dir}"
-  stow -d $HOME/dotfiles/devbox/local -t "$HOME/Documents/${dir}" "${dir}"
-done
