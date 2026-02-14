@@ -30,5 +30,6 @@ ln -sf $HOME/dotfiles/git/gitconfig $HOME/.gitconfig
 
 ### symlink
 # .config
+mkdir -p $HOME/.fonts
 stow -d $HOME/dotfiles -t $HOME/.fonts/ fonts
 stow -d $HOME/dotfiles -t $HOME/.config/ config

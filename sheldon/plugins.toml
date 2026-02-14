@@ -55,7 +55,6 @@ apply = ["defer"]
 
 # custom
 [plugins.starship]
-
 inline = 'eval "$(starship init zsh)"'
 
 [plugins.direnv]
@@ -75,7 +74,8 @@ if (( $+command[opam])); then
   fi
 fi
 '''
-
+[plugins.flatpak]
+inline = 'export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$HOME/.nix-profile/share:$XDG_DATA_DIRS"'
 [plugins.editor]
 inline = 'export EDITOR=nvim'
 
