@@ -1,8 +1,7 @@
-# 構成要素
+# pre-requirement
 
-- devbox: globalなpmとして使う。ディレクトリごとにパッケージ管理も行い環境を分離する
-- sheldon: シェル管理
+- zsh: `sudo apt install zsh`
+    - set default shell: `chsh -s /bin/zsh`
+- nix (determinate): https://determinate.systems/
+- devbox: https://www.jetify.com/devbox
 
-# pre requirement
-- zsh(bluefin already installed)
-- devbox(安全面が不安なので手動で)
