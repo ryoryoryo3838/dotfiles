@@ -26,6 +26,7 @@ in
       "org.wezfurlong.wezterm"
       "org.zotero.Zotero"
       "us.zoom.Zoom"
+      "org.fcitx.Fcitx5"
     ];
     update.onActivation = true;
     };

@@ -6,5 +6,5 @@ if [ ! $(command -v home-manager ) ]; then
 fi
 
 
-source $HOME/.zshrc
+# source $HOME/.zshrc
 home-manager switch

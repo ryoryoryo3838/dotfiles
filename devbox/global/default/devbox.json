@@ -21,7 +21,10 @@
     "tailscale@latest",
     "nodejs@latest",
     "lazygit@latest",
-    "openvpn@latest"
+    "openvpn@latest",
+    "tree-sitter@latest",
+    "fd@latest",
+    "ripgrep@latest"
   ],
   "shell": {
     "init_hook": [
