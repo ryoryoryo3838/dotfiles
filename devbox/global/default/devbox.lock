@@ -558,6 +558,44 @@
         }
       }
     },
+    "opencode@latest": {
+      "last_modified": "2026-03-27T11:17:38Z",
+      "resolved": "github:NixOS/nixpkgs/832efc09b4caf6b4569fbf9dc01bec3082a00611#opencode",
+      "source": "devbox-search",
+      "version": "1.3.2",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/wjgvg299pnnpvnqviq74f7w4hq6pbjzp-opencode-1.3.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/wjgvg299pnnpvnqviq74f7w4hq6pbjzp-opencode-1.3.2"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9jp77g4drs1q7ccf642n0m29g5mr3q2k-opencode-1.3.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/9jp77g4drs1q7ccf642n0m29g5mr3q2k-opencode-1.3.2"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/yannk9n8nyp45y7agjk57fr211x0zc2c-opencode-1.3.2",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/yannk9n8nyp45y7agjk57fr211x0zc2c-opencode-1.3.2"
+        }
+      }
+    },
     "openvpn@latest": {
       "last_modified": "2026-01-23T17:20:52Z",
       "resolved": "github:NixOS/nixpkgs/a1bab9e494f5f4939442a57a58d0449a109593fe#openvpn",
@@ -651,6 +689,34 @@
             }
           ],
           "store_path": "/nix/store/bcw1ns9fhw1mfvkp6mm4hxkxl57gn4pc-pandoc-cli-3.7.0.2"
+        }
+      }
+    },
+    "proxychains@latest": {
+      "last_modified": "2026-03-21T07:29:51Z",
+      "resolved": "github:NixOS/nixpkgs/09061f748ee21f68a089cd5d91ec1859cd93d0be#proxychains",
+      "source": "devbox-search",
+      "version": "4.4.0",
+      "systems": {
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rcrd9i57klmq4ws43472cvhycn72f6pd-proxychains-4.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rcrd9i57klmq4ws43472cvhycn72f6pd-proxychains-4.4.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/p3h9kajd8b4rkjzkp6cwbf3rs0ji82ca-proxychains-4.4.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/p3h9kajd8b4rkjzkp6cwbf3rs0ji82ca-proxychains-4.4.0"
         }
       }
     },
