@@ -61,7 +61,12 @@ inline = 'eval "$(starship init zsh)"'
 inline = 'eval "$(direnv hook zsh)"'
 
 [plugins.bindkey]
-inline = 'bindkey -v'
+inline = '''
+bindkey -v
+bindkey -r "^[x"
+bindkey -r "^[:"
+bindkey -M vicmd -r ":"
+'''
 
 [plugins.chpwd]
 inline = 'chpwd() { ls --color=auto }'
@@ -78,6 +83,21 @@ fi
 inline = 'export XDG_DATA_DIRS="$HOME/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:$HOME/.nix-profile/share:$XDG_DATA_DIRS"'
 [plugins.editor]
 inline = 'export EDITOR=nvim'
+
+[plugins.proxy-opencode]
+inline = '''
+proxycode() {
+  local unit="proxycode-$$-$(date+%s)"
+  systemd-run --user --scope --unit="$unit" \
+  bash -lc """
+    ssh -D 3838 -N -o ExitOnForwardFailure=yes zengaku &
+    exec proxychains4 opencode
+  """
+}
+'''
+
+[plugins.clip]
+inline = "clip() {xsel --clipboard --input}"
 
 ### devboxはsheldonより先に読み込まなきゃいけないので.zshrcに直接書く
 #[plugins.devbox]

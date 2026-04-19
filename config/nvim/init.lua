@@ -91,7 +91,7 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
 -- See `:help vim.o`
@@ -600,6 +600,23 @@ require('lazy').setup({
       --  See `:help lsp-config` for information about keys and how to configure
       ---@type table<string, vim.lsp.Config>
       local servers = {
+        ocamllsp = {
+          mason = false,
+          cmd = { 'ocamllsp' },
+          -- cmd = { 'dune', 'tools', 'exec', 'ocamllsp', '--', '--stdio' },
+          root_markers = {
+            { 'dune-workspace', 'dune-project' },
+            { '*.opam' },
+            '.git',
+          },
+          filetypes = { 'ocaml', 'dune' },
+        },
+        pyrefly = {
+          mason = false,
+          cmd = { 'pyrefly', 'lsp' },
+          filetypes = { 'python' },
+          root_markers = { 'pyproject.toml', '.git' },
+        },
         -- clangd = {},
         -- gopls = {},
         -- pyright = {},
@@ -610,8 +627,6 @@ require('lazy').setup({
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
-
-        stylua = {}, -- Used to format Lua code
 
         -- Special Lua Config, as recommended by neovim help docs
         lua_ls = {
@@ -650,9 +665,13 @@ require('lazy').setup({
       --    :Mason
       --
       -- You can press `g?` for help in this menu.
-      local ensure_installed = vim.tbl_keys(servers or {})
+      local ensure_installed = {}
+      for server_name, server in pairs(servers or {}) do
+        if server.mason ~= false then table.insert(ensure_installed, server_name) end
+      end
       vim.list_extend(ensure_installed, {
         -- You can add other tools here that you want Mason to install
+        'stylua',
       })
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }

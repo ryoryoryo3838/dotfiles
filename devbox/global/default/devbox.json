@@ -26,7 +26,12 @@
     "fd@latest",
     "ripgrep@latest",
     "opencode@latest",
-    "proxychains@latest"
+    "proxychains@latest",
+    "btop@latest",
+    "bat@latest",
+    "xsel@latest",
+    "openssh@latest",
+    "nvtop@latest"
   ],
   "shell": {
     "init_hook": [

@@ -1,6 +1,6 @@
 [user]
 	name = ryoryoryo3838
-	email = miya.klis.default@gmail.com
+	email = rseimiya@miya-lis.net
 [init]
 	defaultBranch = main
 [credential "https://github.com"]
@@ -9,3 +9,5 @@
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/home/miyax/.local/share/devbox/global/default/.devbox/nix/profile/default/bin/gh auth git-credential
+[credential]
+	helper = libsecret
