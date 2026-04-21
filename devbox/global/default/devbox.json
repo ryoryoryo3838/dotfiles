@@ -24,7 +24,10 @@
     "openvpn@latest",
     "tree-sitter@latest",
     "fd@latest",
-    "ripgrep@latest"
+    "ripgrep@latest",
+    "opencode@latest",
+    "proxychains@latest",
+    "pueue@latest"
   ],
   "shell": {
     "init_hook": [

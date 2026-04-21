@@ -1,3 +1,7 @@
 # export ZSH="$HOME/.local/share/sheldon/repos/github.com/ohmyzsh/ohmyzsh"
 eval "$(devbox global shellenv)"
 eval "$(sheldon source)"
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export PATH="$HOME/.tavily/bin:$PATH"
