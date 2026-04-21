@@ -16,6 +16,7 @@ ln -sf $HOME/dotfiles/devbox $DEV_GLOBAL_DIR
 ln -sf $HOME/dotfiles/dots/bashrc $HOME/.bashrc
 ln -sf $HOME/dotfiles/dots/zshrc $HOME/.zshrc
 ln -sf $HOME/dotfiles/dots/wezterm.lua $HOME/.wezterm.lua
+ln -sf $HOME/dotfiles/dots/direnvrc $HOME/.direnvrc
 # Shell
 ln -sf $HOME/dotfiles/shell/rm.sh $HOME/rm.sh
 # sheldon

@@ -4,4 +4,14 @@ eval "$(sheldon source)"
 export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+export GLFW_IM_MODULE=fcitx
+export SDK_IM_MODULE=ibus
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/miyax/.lmstudio/bin"
+# End of LM Studio CLI section
+
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
 export PATH="$HOME/.tavily/bin:$PATH"
