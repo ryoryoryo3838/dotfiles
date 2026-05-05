@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
   "packages": [
     "git@latest",
-    "neovim@latest",
+    "neovim@0.11",
     "vim@latest",
     "gh@latest",
     "starship@latest",
@@ -34,7 +34,15 @@
     "bat@latest",
     "xsel@latest",
     "openssh@latest",
-    "nvtop@latest"
+    "nvtop@latest",
+    "claude-code@latest",
+    "fzf@latest",
+    "python3@latest",
+    "git-filter-repo@latest",
+    "cargo@latest",
+    "python312Packages.pip@latest",
+    "path:/home/miyax/.flakes/leaf#leaf",
+    "basalt@latest"
   ],
   "shell": {
     "init_hook": [

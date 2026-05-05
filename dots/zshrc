@@ -15,3 +15,7 @@ export QT_IM_MODULE=fcitx
 export GTK_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 export PATH="$HOME/.tavily/bin:$PATH"
+
+
+export ANTHROPIC_BASE_URL="http://localhost:1234"
+export ANTHROPIC_AUTH_TOKEN="dummy"
