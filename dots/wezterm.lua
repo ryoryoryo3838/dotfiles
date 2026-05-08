@@ -1,11 +1,11 @@
-local wezterm = require 'wezterm'
+local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.use_ime = true
 
 -- 外観のシンプル化
 -- config.color_scheme = "Solarized Dark Higher Contrast (Gogh)" -- 落ち着いたダークテーマ
-config.color_scheme = "tokyonight"
+config.color_scheme = "Tokyo Night Moon"
 config.font = wezterm.font("PlemolJP Console NF") -- 読みやすいフォント
 config.font_size = 11.0
 

@@ -100,7 +100,7 @@ vim.diagnostic.config {
   underline = { severity = { min = vim.diagnostic.severity.WARN } },
 
   -- Can switch between these as you prefer
-  virtual_text = true, -- Text shows up at the end of the line
+  virtual_text = false, -- Text shows up at the end of the line
   virtual_lines = true, -- Text shows up underneath the line, with virtual lines
 
   -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
@@ -390,8 +390,12 @@ require('lazy').setup({
         stylua = {}, -- Used to format Lua code
 
         -- Special Lua Config, as recommended by neovim help docs
-        lua_ls = require 'custom.plugins.lsp.lua.lua_ls',
-
+        lua_ls = {},
+        pyrefly = {
+          cmd = { 'pyrefly', 'lsp' },
+          filetypes = { 'python' },
+          root_markers = { 'pyrefly.toml', 'pyproject.toml', '.git' },
+        },
         ocamllsp = {
           mason = false,
           cmd = { 'ocamllsp' },
@@ -467,6 +471,7 @@ require('lazy').setup({
         lua = { 'stylua' },
         ocaml = { 'ocamlformat' },
         ocamlinterface = { 'ocamlformat' },
+        python = { 'ruff_fix', 'ruff_organize_imports', 'ruff_format' },
       },
       formatters = {
         ocamlformat = {
@@ -685,6 +690,16 @@ require('lazy').setup({
             treesitter_try_attach(buf, language)
           end
         end,
+      })
+    end,
+  },
+  {
+    'rachartier/tiny-inline-diagnostic.nvim',
+    event = 'VeryLazy',
+    priority = 1000,
+    config = function()
+      require('tiny-inline-diagnostic').setup(vim.diagnostic.config {
+        virtual_text = false,
       })
     end,
   },
